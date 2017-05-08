@@ -19,11 +19,11 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'boat', 'skier', 'pole', 'rock', 'shark', 'sea' ]);
-        this.load.spritesheet('waves', 'waves.png', 16, 6);
-//        var sea = this.load.image('sea', 'sea.png');
-//        sea.height = game.height
-//        sea.width = game.width
+        this.load.images([ 'logo', 'man', 'husky', 'zomkabob', 'hand', 'zombie', 'town' ]);
+        this.load.spritesheet('Crack', 'Crack.png', 16, 6);
+//        var town = this.load.image('town', 'town.png');
+//        town.height = game.height
+//        town.width = game.width
 
     },
 
@@ -42,7 +42,7 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'sea');
+        this.add.image(0, 0, 'town');
 
         var logo = this.add.image(this.world.centerX, 200, 'logo');
         logo.anchor.x = 0.5;
@@ -77,10 +77,10 @@ Aquaplane.Game = function (game) {
     this.ready = false;
 
     this.layer = null;
-    this.itemDist = ['pole', 'pole', 'pole', 'rock', 'rock', 'rock', 'shark'];
+    this.itemDist = ['zomkabob', 'zomkabob', 'zomkabob', 'hand', 'hand', 'hand', 'zombie'];
 
-    this.boat = null;
-    this.skier = null;
+    this.man = null;
+    this.husky = null;
     this.rope = null;
 
     this.timer = null;
@@ -115,13 +115,13 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'sea');
+        this.add.image(0, 0, 'town');
 
         this.waterParticle = this.make.bitmapData(2, 2);
         this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
         this.waterParticle.update();
 
-        this.emitter = this.add.emitter(0, 0, 128);
+        this.emitter = this.add.emitter(128, 128, 128);
         this.emitter.makeParticles(this.waterParticle);
 
         this.emitter.gravity = 0;
@@ -134,28 +134,28 @@ Aquaplane.Game.prototype = {
 
         this.layer = this.add.group();
 
-        this.boat = this.layer.create(0, 0, 'boat');
+        this.man = this.layer.create(0, 0, 'Man');
 
-        this.physics.p2.enable(this.boat, false);
+        this.physics.p2.enable(this.man, false);
 
-        this.boat.body.mass = 1;
-        this.boat.body.damping = 0.5;
-        this.boat.body.fixedRotation = true;
-        this.boat.body.collideWorldBounds = false;
+        this.man.body.mass = 1;
+        this.man.body.damping = 0.5;
+        this.man.body.fixedRotation = true;
+        this.man.body.collideWorldBounds = false;
 
-        this.skier = this.layer.create(0, 0, 'skier');
+        this.husky = this.layer.create(0, 0, 'husky');
 
-        this.physics.p2.enable(this.skier, false);
+        this.physics.p2.enable(this.husky, false);
 
-        this.skier.body.mass = 0.05;
-        this.skier.body.damping = 0.5;
-        this.skier.body.fixedRotation = true;
-        this.skier.body.collideWorldBounds = false;
+        this.husky.body.mass = 0.05;
+        this.husky.body.damping = 0.5;
+        this.husky.body.fixedRotation = true;
+        this.husky.body.collideWorldBounds = false;
 
-        this.boatBounds = new Phaser.Rectangle(0, 0, 60, 10);
-        this.skierBounds = new Phaser.Rectangle(0, 0, 30, 8);
+        this.manBounds = new Phaser.Rectangle(0, 0, 60, 10);
+        this.huskyBounds = new Phaser.Rectangle(0, 0, 30, 8);
 
-        var rev = new p2.RevoluteConstraint(this.boat.body.data, this.skier.body.data, {
+        var rev = new p2.RevoluteConstraint(this.man.body.data, this.husky.body.data, {
                 localPivotA: [9, 0],
                 localPivotB: [2, 0],
                 collideConnected: false
@@ -167,10 +167,10 @@ Aquaplane.Game.prototype = {
 
         rev.setStiffness(2.0);
 
-        //  Let's create some waves (harmless eye candy)
+        //  Let's create some cracks (harmless eye candy)
         //  
         //  Divide screen vertically into 520px / 8 layers = 65px per layer
-        //  Place 8 waves per layer (8*8 total)
+        //  Place 8 cracks per layer (8*8 total)
 
         var area = new Phaser.Rectangle(0, 80, this.game.width, 65);
 
@@ -178,18 +178,18 @@ Aquaplane.Game.prototype = {
         {
             for (var w = 0; w < 8; w++)
             {
-                var wave = this.layer.create(area.randomX, area.randomY, 'waves', this.rnd.between(0, 2));
-                wave.anchor.y = -1.5;
-                this.physics.arcade.enable(wave);
-                wave.body.velocity.x = -120 + (i * -30);
+                var wave = this.layer.create(area.randomX, area.randomY, 'cracks', this.rnd.between(0, 2));
+                'crack'.anchor.y = -1.5;
+                this.physics.arcade.enable(crack);
+                crack.body.velocity.x = -120 + (i * -30);
             }
 
             area.y += 65;
         }
 
-        this.line = new Phaser.Line(this.boat.x - 28, this.boat.y, this.skier.x + 6, this.skier.y - 1);
+        this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
-        //  The rope that attaches the water skier to the boat
+        //  The rope that attaches the husky to the man
         this.rope = this.add.graphics(0, 0);
 
         this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
@@ -208,7 +208,7 @@ Aquaplane.Game.prototype = {
         this.debugKey = this.input.keyboard.addKey(Phaser.Keyboard.D);
         this.debugKey.onDown.add(this.toggleDebug, this);
 
-        this.bringBoatOn();
+        this.bringManOn();
 
     },
 
@@ -224,26 +224,26 @@ Aquaplane.Game.prototype = {
 
     },
 
-    bringBoatOn: function () {
+    bringManOn: function () {
 
         this.ready = false;
 
-        this.boat.body.x = -64;
-        this.boat.body.y = 300;
+        this.man.body.x = -64;
+        this.man.body.y = 300;
 
-        this.skier.visible = true;
-        this.skier.body.x = -264;
-        this.skier.body.y = 300;
+        this.husky.visible = true;
+        this.husky.body.x = -264;
+        this.husky.body.y = 300;
 
-        this.boat.body.velocity.x = 300;
+        this.husky.body.velocity.x = 300;
 
     },
 
-    boatReady: function () {
+    manReady: function () {
 
         this.ready = true;
         
-        this.boat.body.setZeroVelocity();
+        this.man.body.setZeroVelocity();
 
         this.timer.add(this.itemInterval.max, this.releaseItem, this);
         this.timer.start();
@@ -261,7 +261,7 @@ Aquaplane.Game.prototype = {
         
         this.physics.arcade.enable(item);
 
-        if (frame === 'shark')
+        if (frame === 'Zombie')
         {
             item.body.setSize(32, 14, 0, 16);
         }
@@ -302,84 +302,84 @@ Aquaplane.Game.prototype = {
 
         if (this.ready)
         {
-            this.updateBoat();
+            this.updateMan();
 
             //  Score based on their position on the screen
-            this.score += (this.math.snapToFloor(this.skier.y, 65) / 65);
+            this.score += (this.math.snapToFloor(this.husky.y, 65) / 65);
             this.scoreText.text = "SCORE: " + this.score;
         }
         else
         {
-            if (this.skier.visible)
+            if (this.husky.visible)
             {
-                if (this.boat.x >= 250)
+                if (this.man.x >= 250)
                 {
-                    this.boatReady();
+                    this.manReady();
                 }
             }
             else
             {
-                if (this.boat.x >= 832)
+                if (this.man.x >= 832)
                 {
-                    this.bringBoatOn();
+                    this.bringManOn();
                 }
             }
         }
 
-        this.boatBounds.centerOn(this.boat.x + 4, this.boat.y + 8);
-        this.skierBounds.centerOn(this.skier.x + 2, this.skier.y + 10);
+        this.manBounds.centerOn(this.man.x + 4, this.man.y + 8);
+        this.huskyBounds.centerOn(this.husky.x + 2, this.husky.y + 10);
 
-        this.emitter.emitX = this.boat.x - 16;
-        this.emitter.emitY = this.boat.y + 10;
+        this.emitter.emitX = this.man.x - 16;
+        this.emitter.emitY = this.man.y + 10;
 
         //  Let's sort and collide
         this.layer.forEachAlive(this.checkItem, this);
 
     },
 
-    updateBoat: function () {
+    updateMan: function () {
 
-        if (this.boat.x < 200)
+        if (this.man.x < 200)
         {
-            this.boat.body.setZeroForce();
-            this.boat.body.x = 200;
+            this.man.body.setZeroForce();
+            this.man.body.x = 200;
         }
-        else if (this.boat.x > 750)
+        else if (this.man.x > 750)
         {
-            this.boat.body.setZeroForce();
-            this.boat.body.x = 750;
+            this.man.body.setZeroForce();
+            this.man.body.x = 750;
         }
 
-        if (this.boat.y < 100)
+        if (this.man.y < 100)
         {
-            this.boat.body.setZeroForce();
-            this.boat.body.y = 100;
+            this.man.body.setZeroForce();
+            this.man.body.y = 100;
         }
-        else if (this.boat.y > 550)
+        else if (this.man.y > 550)
         {
-            this.boat.body.setZeroForce();
-            this.boat.body.y = 550;
+            this.man.body.setZeroForce();
+            this.man.body.y = 550;
         }
 
         if (this.cursors.left.isDown)
         {
-            this.boat.body.force.x = -this.speed;
+            this.man.body.force.x = -this.speed;
             this.lastKey = this.time.time;
         }
         else if (this.cursors.right.isDown)
         {
-            this.boat.body.force.x = this.speed;
+            this.man.body.force.x = this.speed;
             this.lastKey = this.time.time;
         }
 
         if (this.cursors.up.isDown)
         {
-            this.boat.body.force.y = -this.speed;
+            this.man.body.force.y = -this.speed;
             this.lastKey = this.time.time;
         }
         else if (this.cursors.down.isDown)
         {
-            this.boat.body.force.y = this.speed;
+            this.man.body.force.y = this.speed;
             this.lastKey = this.time.time;
         }
 
@@ -387,14 +387,14 @@ Aquaplane.Game.prototype = {
 
     checkItem: function (item) {
 
-        if (item === this.boat || item === this.skier)
+        if (item === this.man || item === this.husky)
         {
             return;
         }
 
         if (item.x < -32)
         {
-            if (item.key === 'waves')
+            if (item.key === 'cracks')
             {
                 item.x = this.rnd.between(800, 864);
             }
@@ -406,7 +406,7 @@ Aquaplane.Game.prototype = {
         else
         {
             //   Check for collision
-            if (this.ready && item.key !== 'waves' && this.skierBounds.intersects(item.body))
+            if (this.ready && item.key !== 'cracks' && this.huskyBounds.intersects(item.body))
             {
                 this.loseLife();
             }
@@ -428,15 +428,15 @@ Aquaplane.Game.prototype = {
 
             this.ready = false;
 
-            //  Kill the surfer!
-            this.skier.visible = false;
+            //  Kill the dog!
+            this.husky.visible = false;
 
             //  Hide the rope
             this.rope.clear();
 
-            //  Speed the boat away
-            this.boat.body.setZeroVelocity();
-            this.boat.body.velocity.x = 600;
+            //  Speed the man away
+            this.man.body.setZeroVelocity();
+            this.man.body.velocity.x = 600;
 
             this.itemInterval.min += 200;
             this.itemInterval.max += 200;
@@ -452,9 +452,9 @@ Aquaplane.Game.prototype = {
 
     preRender: function () {
 
-        this.line.setTo(this.boat.x - 28, this.boat.y, this.skier.x + 6, this.skier.y - 1);
+        this.line.setTo(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
-        if (this.skier.visible)
+        if (this.husky.visible)
         {
             this.rope.clear();
             this.rope.lineStyle(1, 0xffffff, 1);
@@ -469,17 +469,17 @@ Aquaplane.Game.prototype = {
 
         if (this.showDebug)
         {
-            this.game.debug.geom(this.boatBounds);
-            this.game.debug.geom(this.skierBounds);
+            this.game.debug.geom(this.manBounds);
+            this.game.debug.geom(this.huskyBounds);
             this.layer.forEachAlive(this.renderBody, this);
-            this.game.debug.geom(this.skier.position, 'rgba(255,255,0,1)');
+            this.game.debug.geom(this.husky.position, 'rgba(255,255,0,1)');
         }
 
     },
 
     renderBody: function (sprite) {
 
-        if (sprite === this.boat || sprite === this.skier || sprite.key === 'waves')
+        if (sprite === this.man || sprite === this.husky || sprite.key === 'cracks')
         {
             return;
         }
