@@ -28,6 +28,7 @@ Aquaplane.Preloader.prototype = {
     create: function () {
         this.Man=game.add.sprite(100,100,"Man");
        this.man.animations.add('run', [0, 1, 2, 3, 4, 5, 6, 7, 8], 12, true);
+        this.man.animation.play("run")
         
         this.state.start('Aquaplane.MainMenu');
 
