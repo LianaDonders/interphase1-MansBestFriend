@@ -13,7 +13,7 @@ Aquaplane.Preloader.prototype = {
     },
 
     preload: function () {
-        game.load.spritesheet('Man.png', 'assets/Man.png', 480, 480, 8);
+        //game.load.spritesheet('Man.png', 'assets/Man.png', 480, 480, 8);
 
         this.load.path = 'assets/';
 
@@ -26,7 +26,7 @@ Aquaplane.Preloader.prototype = {
     },
 
     create: function () {
-        this.Man=game.add.sprite(100,100,"Man");
+        //this.Man=game.add.sprite(100,100,"Man");
         this.state.start('Aquaplane.MainMenu');
 
     }
