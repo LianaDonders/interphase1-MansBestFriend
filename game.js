@@ -14,7 +14,7 @@ Aquaplane.Preloader.prototype = {
 
     preload: function () {
 
-        game.load.spritesheet('town', 'assets/town.png', game.width, game.height, 22)
+        game.load.spritesheet('town', 'assets/town.png', game.width, game.height, 22);
         
         this.load.path = 'assets/';
 
@@ -43,7 +43,9 @@ Aquaplane.MainMenu = function () {};
 Aquaplane.MainMenu.prototype = {
 
     create: function () {
-        this.town=gmae.add.sprite(0, 0, "town")
+        this.town=gmae.add.sprite(0, 0, "town");
+        this.town.animations.add('scroll', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22], 12, true);
+        this.town.animations.play("scroll")
         //this.add.image(0, 0, 'town');
 
         var logo = this.add.image( this.world.centerX, 20, 'logo');
