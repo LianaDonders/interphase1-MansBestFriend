@@ -21,7 +21,7 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'man', 'husky', 'zomkabob', 'hand', 'zombie', 'town' ]);
+        this.load.images([ 'logo', 'man', 'husky', 'zomkabob', 'hand', 'zombie' ]);
         this.load.spritesheet('crack', 'Crack.png', 16, 6);
 //        var town = this.load.image('town', 'Town.png');
 //        town.height = game.height
