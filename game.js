@@ -41,8 +41,8 @@ Aquaplane.MainMenu = function () {};
 Aquaplane.MainMenu.prototype = {
 
     create: function () {
-
-        this.add.image(0, 0, 'town');
+game.load.spritesheet('town', 'assets/town.png')
+        //this.add.image(0, 0, 'town');
 
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
