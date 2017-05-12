@@ -138,7 +138,7 @@ Aquaplane.Game.prototype = {
 
         this.layer = this.add.group();
 
-        this.man = this.layer.create(0, 0, 'Man');
+        this.man = this.layer.create(0, 0, 'man');
 
         this.physics.p2.enable(this.man, false);
 
@@ -182,7 +182,7 @@ Aquaplane.Game.prototype = {
         {
             for (var w = 0; w < 8; w++)
             {
-                var wave = this.layer.create(area.randomX, area.randomY, 'cracks', this.rnd.between(0, 2));
+                var crack = this.layer.create(area.randomX, area.randomY, 'crack', this.rnd.between(0, 2));
                 'crack'.anchor.y = -1.5;
                 this.physics.arcade.enable(crack);
                 crack.body.velocity.x = -120 + (i * -30);
@@ -265,7 +265,7 @@ Aquaplane.Game.prototype = {
         
         this.physics.arcade.enable(item);
 
-        if (frame === 'Zombie')
+        if (frame === 'zombie')
         {
             item.body.setSize(32, 14, 0, 16);
         }
@@ -291,7 +291,7 @@ Aquaplane.Game.prototype = {
         if ((this.time.time - this.lastKey) > 200)
         {
             this.lastKey = this.time.time;
-            this.releaseItem(800, this.skier.y - 16);
+            this.releaseItem(800, this.husky.y - 16);
         }
         else
         {
@@ -398,7 +398,7 @@ Aquaplane.Game.prototype = {
 
         if (item.x < -32)
         {
-            if (item.key === 'cracks')
+            if (item.key === 'crack')
             {
                 item.x = this.rnd.between(800, 864);
             }
@@ -410,7 +410,7 @@ Aquaplane.Game.prototype = {
         else
         {
             //   Check for collision
-            if (this.ready && item.key !== 'cracks' && this.huskyBounds.intersects(item.body))
+            if (this.ready && item.key !== 'crack' && this.huskyBounds.intersects(item.body))
             {
                 this.loseLife();
             }
@@ -483,7 +483,7 @@ Aquaplane.Game.prototype = {
 
     renderBody: function (sprite) {
 
-        if (sprite === this.man || sprite === this.husky || sprite.key === 'cracks')
+        if (sprite === this.man || sprite === this.husky || sprite.key === 'crack')
         {
             return;
         }
