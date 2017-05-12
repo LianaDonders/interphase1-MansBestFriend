@@ -1,4 +1,4 @@
-var Aquaplane = {};
+var Aquaplane = {};.
 
 Aquaplane.Preloader = function () {};
 
