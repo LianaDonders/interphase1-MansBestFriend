@@ -13,7 +13,8 @@ Aquaplane.Preloader.prototype = {
     },
 
     preload: function () {
-        game.load.spritesheet('man' 'assets/man.png',)
+        game.load.spritesheet('man' 'assets/man.png', 15, 25, 8);
+        
 
         //game.load.spritesheet('town', 'assets/town.png', game.width, game.height, 22);
         
@@ -33,6 +34,7 @@ Aquaplane.Preloader.prototype = {
     create: function () {
 
         this.state.start('Aquaplane.MainMenu');
+       
 
     }
 
@@ -139,7 +141,10 @@ Aquaplane.Game.prototype = {
 
         this.layer = this.add.group();
 
-        this.man = this.layer.create(0, 0, 'man');
+       // this.man = this.layer.create(0, 0, 'man');
+         var man = game.add.sprite(0,0, 'man');
+        var walk = man.animations.add('walk');
+        man.animations.play('walk');
 
         this.physics.p2.enable(this.man, false);
 
