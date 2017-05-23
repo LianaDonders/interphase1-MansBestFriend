@@ -13,7 +13,7 @@ Aquaplane.Preloader.prototype = {
     },
 
     preload: function () {
-        game.load.spritesheet('man', 'assets/man.png', 15, 25, 8);
+        this.load.spritesheet('man', 'assets/man.png', 15, 25, 8);
         
         
 
