@@ -19,7 +19,7 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'husky', 'zomkabob', 'hand', 'zombie', 'town' ]);
+        this.load.images([ 'logo', 'husky', 'zomkabob', 'hand', 'zombie',]);
         this.load.spritesheet('town', 'town.png', 800, 600, 22);
         this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('man', 'man.png', 15, 25, 8);
@@ -44,8 +44,8 @@ Aquaplane.MainMenu.prototype = {
 
         this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, 0, 'town');
-        var scroll = man.animations.add('scroll');
-        man.animations.play('scroll', 12, true)
+        var scroll = town.animations.add('scroll');
+        town.animations.play('scroll', 12, true);
         
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
