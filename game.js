@@ -13,8 +13,8 @@ Aquaplane.Preloader.prototype = {
     },
 
     preload: function () {
+        game.load.spritesheet('man', 'assets/man.png', 15, 25, 8);
         
-        game.load.spritesheet('man', 'assets/man.png', 32, 32, 8);
         
 
         //game.load.spritesheet('town', 'assets/town.png', game.width, game.height, 22);
@@ -145,7 +145,7 @@ Aquaplane.Game.prototype = {
        //this.man = this.layer.create(0, 0, 'man');
         var man = game.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
-        man.animations.play('walk', 12, true);
+        man.animations.play('walk', 30, true)
 
         this.physics.p2.enable(this.man, false);
 
