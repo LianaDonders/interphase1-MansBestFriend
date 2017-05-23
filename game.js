@@ -23,7 +23,7 @@ Aquaplane.Preloader.prototype = {
         this.load.spritesheet('town', 'town.png', 800, 600, 22);
         this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('man', 'man.png', 92, 92, 8);
-
+        this.load.spritesheet('husky', 'husky.png', 92, 92, 7);
     },
 
     create: function () {
@@ -150,6 +150,9 @@ Aquaplane.Game.prototype = {
         this.man.body.collideWorldBounds = false;
 
         this.husky = this.layer.create(0, 0, 'husky');
+        var husky = game.add.sprite(100, 100, 'husky');
+        var run = husky.animations.add('run');
+        husky.animations.play('run', 12, true)
 
         this.physics.p2.enable(this.husky, false);
 
