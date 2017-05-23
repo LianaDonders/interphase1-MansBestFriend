@@ -20,6 +20,7 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('interfont');
 
         this.load.images([ 'logo', 'husky', 'zomkabob', 'hand', 'zombie', 'town' ]);
+       
         this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('man', 'man.png', 15, 25);
 
@@ -188,7 +189,7 @@ Aquaplane.Game.prototype = {
 
             area.y += 65;
         }
-// var man = this.layer.create(area.randomX, area.randomY, 'crack', this.rnd.between(0, 2));
+// var man = this.layer.create(area.randomX, area.randomY, 'man', this.rnd.between(0, 2));
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
         //  The rope that attaches the husky to the man
