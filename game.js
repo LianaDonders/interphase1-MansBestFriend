@@ -311,6 +311,7 @@ Aquaplane.Game.prototype = {
     },
 
     update: function () {
+        background.tilePosition.y += 2;
 
         this.layer.sort('y', Phaser.Group.SORT_ASCENDING);
 
