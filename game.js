@@ -118,10 +118,10 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'town');
-        var town = game.add.sprite(0, 0, 'town');
-        var scroll = town.animations.add('scroll');
-        town.animations.play('scroll', 12, true);
+        //this.add.image(0, 0, 'town');
+        //var town = game.add.sprite(0, 0, 'town');
+        //var scroll = town.animations.add('scroll');
+        //town.animations.play('scroll', 12, true);
 
         this.waterParticle = this.make.bitmapData(2, 2);
         this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
