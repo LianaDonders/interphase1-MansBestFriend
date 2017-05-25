@@ -43,11 +43,11 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-        //this.add.image(0, 0, 'town');
-        //var town = game.add.sprite(0, 0, 'town');
-        //var scroll = town.animations.add('scroll');
-        //town.animations.play('scroll', 12, true);
-         background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
+        this.add.image(0, 0, 'town');
+        var town = game.add.sprite(0, 0, 'town');
+        var scroll = town.animations.add('scroll');
+        town.animations.play('scroll', 12, true);
+         //background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
         
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
@@ -120,10 +120,10 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        //this.add.image(0, 0, 'town');
-        //var town = game.add.sprite(0, 0, 'town');
-        //var scroll = town.animations.add('scroll');
-        //town.animations.play('scroll', 12, true);
+        this.add.image(0, 0, 'town');
+        var town = game.add.sprite(0, 0, 'town');
+        var scroll = town.animations.add('scroll');
+        town.animations.play('scroll', 12, true);
 
         this.waterParticle = this.make.bitmapData(2, 2);
         this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
@@ -311,7 +311,7 @@ Aquaplane.Game.prototype = {
     },
 
     update: function () {
-        background.tilePosition.y += 2;
+        //background.tilePosition.y += 2;
 
         this.layer.sort('y', Phaser.Group.SORT_ASCENDING);
 
