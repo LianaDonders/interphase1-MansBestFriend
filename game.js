@@ -209,7 +209,7 @@ Aquaplane.Game.prototype = {
         this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
         this.scoreText.smoothed = false;
 
-        this.livesText = this.add.bitmapText(680, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
+        this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
         this.livesText.smoothed = false;
 
         this.cursors = this.input.keyboard.createCursorKeys();
