@@ -505,7 +505,7 @@ Aquaplane.Game.prototype = {
 
 };
 
-var game = new Phaser.Game(700, 500, Phaser.AUTO, 'game');
+var game = new Phaser.Game(700, 550, Phaser.AUTO, 'game');
 
 game.state.add('Aquaplane.Preloader', Aquaplane.Preloader);
 game.state.add('Aquaplane.MainMenu', Aquaplane.MainMenu);
