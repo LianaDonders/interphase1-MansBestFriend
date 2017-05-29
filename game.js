@@ -199,20 +199,17 @@ Aquaplane.Game.prototype = {
 
             area.y += 65;
         }
-// var man = this.layer.create(area.randomX, area.randomY, 'man', this.rnd.between(0, 2));
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
         //  The rope that attaches the husky to the man
         this.rope = this.add.graphics(0, 0);
 
-        this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
+        var start = this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
         this.scoreText.smoothed = false;
-        this.tint =  0x990000
        
 
-        this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
+        var start = this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
         this.livesText.smoothed = false;
-        this.tint =  0x990000
         
 
         this.cursors = this.input.keyboard.createCursorKeys();
