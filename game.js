@@ -44,7 +44,7 @@ Aquaplane.MainMenu.prototype = {
     create: function () {
 
        //this.add.image(0, 0, 'town');
-        var town = game.add.sprite(0, 0, 'town');
+        var town = game.add.sprite(0, 100, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
          //background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
@@ -121,7 +121,7 @@ Aquaplane.Game.prototype = {
     create: function () {
 
         //this.add.image(0, 0, 'town');
-        var town = game.add.sprite(0, 0, 'town');
+        var town = game.add.sprite(0, 100, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
 
