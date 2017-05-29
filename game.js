@@ -43,7 +43,7 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'town');
+       //this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, 0, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
@@ -120,7 +120,7 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'town');
+        //this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, 0, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
