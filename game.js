@@ -147,7 +147,7 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.man, false);
 
-        this.man.body.mass = 1;
+        this.man.body.mass = 0.05;
         this.man.body.damping = 0.5;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
@@ -159,15 +159,15 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 0.05;
+        this.husky.body.mass = 1;
         this.husky.body.damping = 0.5;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
-
+//edit these sizes
         this.manBounds = new Phaser.Rectangle(0, 0, 60, 10);
         this.huskyBounds = new Phaser.Rectangle(0, 0, 30, 8);
 
-        var rev = new p2.RevoluteConstraint(this.man.body.data, this.husky.body.data, {
+        var rev = new p2.RevoluteConstraint(this.husky.body.data, this.man.body.data, {
                 localPivotA: [9, 0],
                 localPivotB: [2, 0],
                 collideConnected: false
@@ -199,7 +199,7 @@ Aquaplane.Game.prototype = {
             area.y += 65;
         }
 
-        this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
+        this.line = new Phaser.Line(this.man.x + 46, this.man.y, this.husky.x -48, this.husky.y - 1);
 
         //  The rope that attaches the husky to the man
         this.rope = this.add.graphics(0, 0);
@@ -236,26 +236,26 @@ Aquaplane.Game.prototype = {
 
     },
 
-    bringManOn: function () {
+    bringHuskyOn: function () {
 
         this.ready = false;
 
-        this.man.body.x = -64;
-        this.man.body.y = 300;
-
-        this.husky.visible = true;
-        this.husky.body.x = -264;
+        this.husky.body.x = -64;
         this.husky.body.y = 300;
+
+        this.man.visible = true;
+        this.man.body.x = -264;
+        this.man.body.y = 300;
 
         this.husky.body.velocity.x = 300;
 
     },
 
-    manReady: function () {
+    huskyReady: function () {
 
         this.ready = true;
         
-        this.man.body.setZeroVelocity();
+        this.husky.body.setZeroVelocity();
 
         this.timer.add(this.itemInterval.max, this.releaseItem, this);
         this.timer.start();
@@ -264,7 +264,7 @@ Aquaplane.Game.prototype = {
 
     releaseItem: function (x, y) {
 
-        if (x === undefined) { x = 800; }
+        if (x === undefined) { x = 700; }
         if (y === undefined) { y = this.rnd.between(80, 487); }
 
         var frame = this.rnd.pick(this.itemDist);
