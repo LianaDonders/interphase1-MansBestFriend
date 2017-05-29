@@ -43,11 +43,11 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-       //this.add.image(0, 0, 'town');
+      
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
-         //background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
+
         
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
@@ -120,7 +120,6 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        //this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
@@ -208,9 +207,11 @@ Aquaplane.Game.prototype = {
 
         this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
         this.scoreText.smoothed = false;
+        start.tint = 0x990000;
 
         this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
         this.livesText.smoothed = false;
+        start.tint = 0x990000;
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
