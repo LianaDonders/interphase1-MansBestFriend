@@ -141,7 +141,7 @@ Aquaplane.Game.prototype = {
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
-        var man = game.add.sprite('man');
+        var man = game.add.sprite(100, 100, 'man');
         var walk = man.animations.add('walk');
         man.animations.play('walk', 12, true)
 
@@ -153,7 +153,7 @@ Aquaplane.Game.prototype = {
         this.man.body.collideWorldBounds = false;
 
         this.husky = this.layer.create(0, 0, 'husky');
-        var husky = game.add.sprite('husky');
+        var husky = game.add.sprite(100, 100, 'husky');
         var run = husky.animations.add('run');
         husky.animations.play('run', 12, true);
 
