@@ -43,8 +43,8 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'town');
-        var town = game.add.sprite(0, 0, 'town');
+       //this.add.image(0, 0, 'town');
+        var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
          //background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
@@ -120,8 +120,8 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        this.add.image(0, 0, 'town');
-        var town = game.add.sprite(0, 0, 'town');
+        //this.add.image(0, 0, 'town');
+        var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
 
@@ -209,7 +209,7 @@ Aquaplane.Game.prototype = {
         this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
         this.scoreText.smoothed = false;
 
-        this.livesText = this.add.bitmapText(680, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
+        this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
         this.livesText.smoothed = false;
 
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -505,7 +505,7 @@ Aquaplane.Game.prototype = {
 
 };
 
-var game = new Phaser.Game(800, 800, Phaser.AUTO, 'game');
+var game = new Phaser.Game(700, 600, Phaser.AUTO, 'game');
 
 game.state.add('Aquaplane.Preloader', Aquaplane.Preloader);
 game.state.add('Aquaplane.MainMenu', Aquaplane.MainMenu);
