@@ -55,7 +55,7 @@ Aquaplane.MainMenu.prototype = {
         var start = this.add.bitmapText(this.world.centerX, 460, 'fat-and-tiny', 'CLICK TO PLAY', 64);
         start.anchor.x = 0.5;
         start.smoothed = false;
-        start.tint = 0x990000;
+        start.tint = 0x000000;
 
         this.input.onDown.addOnce(this.start, this);
 
