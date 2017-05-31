@@ -19,13 +19,15 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'zomkabob', 'hand', 'zombie',]);
+        this.load.images([ 'logo', 'zomkabob', 'hand']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
        
         this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('man', 'man.png', 92, 92);
         this.load.spritesheet('husky', 'husky.png', 96, 96);
         this.load.spritesheet('zombie', 'zombie.png', 96, 96);
+         this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
+          this.load.spritesheet('hand', 'hand.png', 32, 32);
     },
 
     create: function () {
