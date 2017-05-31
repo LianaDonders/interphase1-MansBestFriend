@@ -43,19 +43,17 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-      
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
-
         
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
 
-var start = this.add.bitmapText(this.world.centerX, 460, 'fat-and-tiny', 'CLICK TO PLAY', 64);
+        var start = this.add.bitmapText(this.world.centerX, 460, 'fat-and-tiny', 'CLICK TO PLAY', 64);
         start.anchor.x = 0.5;
         start.smoothed = false;
-
+        start.tint = 0x990000;
 
         this.input.onDown.addOnce(this.start, this);
 
@@ -120,6 +118,7 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
+ 
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
@@ -140,24 +139,12 @@ Aquaplane.Game.prototype = {
         this.emitter.flow(500, 20, 2, -1, true);
 
         this.layer = this.add.group();
-        
-        this.husky = this.layer.create(0, 0, 'husky');
-        var husky = game.add.sprite(100, 100, 'husky');
-        var run = husky.animations.add('run');
-        husky.animations.play('run', 12, true);
 
-        this.physics.p2.enable(this.man, false);
-
-        this.husky.body.mass = 1;
-        this.husky.body.damping = 0.5;
-        this.husky.body.fixedRotation = true;
-        this.husky.body.collideWorldBounds = false;
-        
         this.man = this.layer.create(0, 0, 'man');
-        var man = game.add.sprite(100, 100, 'man');
+        var man = game.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
         man.animations.play('walk', 12, true)
-       
+
         this.physics.p2.enable(this.man, false);
 
         this.man.body.mass = 0.05;
@@ -165,8 +152,20 @@ Aquaplane.Game.prototype = {
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
 
-        this.huskyBounds = new Phaser.Rectangle(0, 0, 60, 10);
-        this.manBounds = new Phaser.Rectangle(0, 0, 30, 8);
+        this.husky = this.layer.create(0, 0, 'husky');
+        var husky = game.add.sprite(0, 0, 'husky');
+        var run = husky.animations.add('run');
+        husky.animations.play('run', 12, true);
+
+        this.physics.p2.enable(this.husky, false);
+
+        this.husky.body.mass = 1;
+        this.husky.body.damping = 0.5;
+        this.husky.body.fixedRotation = true;
+        this.husky.body.collideWorldBounds = false;
+//edit these sizes
+        this.manBounds = new Phaser.Rectangle(0, 0, 92, 92);
+        this.huskyBounds = new Phaser.Rectangle(0, 0, 96, 96);
 
         var rev = new p2.RevoluteConstraint(this.husky.body.data, this.man.body.data, {
                 localPivotA: [9, 0],
@@ -199,18 +198,17 @@ Aquaplane.Game.prototype = {
 
             area.y += 65;
         }
-        this.line = new Phaser.Line(this.husky.x - 28, this.husky.y, this.man.x + 6, this.man.y - 1);
 
-        //  The rope that attaches the man to the husky
+        this.line = new Phaser.Line(this.man.x + 46, this.man.y, this.husky.x -48, this.husky.y - 1);
+
+        //  The rope that attaches the husky to the man
         this.rope = this.add.graphics(0, 0);
 
-        var start = this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
+        this.scoreText = this.add.bitmapText(16, 0, 'fat-and-tiny', 'SCORE: 0', 32);
         this.scoreText.smoothed = false;
-       
 
-        var start = this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
+        this.livesText = this.add.bitmapText(580, 0, 'fat-and-tiny', 'LIVES: ' + this.lives, 32);
         this.livesText.smoothed = false;
-        
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -222,7 +220,7 @@ Aquaplane.Game.prototype = {
         this.debugKey = this.input.keyboard.addKey(Phaser.Keyboard.D);
         this.debugKey.onDown.add(this.toggleDebug, this);
 
-        this.bringHuskyOn();
+        this.bringManOn();
 
     },
 
@@ -249,7 +247,7 @@ Aquaplane.Game.prototype = {
         this.man.body.x = -264;
         this.man.body.y = 300;
 
-        this.man.body.velocity.x = 300;
+        this.husky.body.velocity.x = 300;
 
     },
 
@@ -266,7 +264,7 @@ Aquaplane.Game.prototype = {
 
     releaseItem: function (x, y) {
 
-        if (x === undefined) { x = 800; }
+        if (x === undefined) { x = 700; }
         if (y === undefined) { y = this.rnd.between(80, 487); }
 
         var frame = this.rnd.pick(this.itemDist);
@@ -301,7 +299,7 @@ Aquaplane.Game.prototype = {
         if ((this.time.time - this.lastKey) > 200)
         {
             this.lastKey = this.time.time;
-            this.releaseItem(800, this.man.y - 16);
+            this.releaseItem(800, this.husky.y - 16);
         }
         else
         {
@@ -311,7 +309,6 @@ Aquaplane.Game.prototype = {
     },
 
     update: function () {
-        //background.tilePosition.y += 2;
 
         this.layer.sort('y', Phaser.Group.SORT_ASCENDING);
 
@@ -334,18 +331,18 @@ Aquaplane.Game.prototype = {
             }
             else
             {
-                if (this.husky.x >= 832)
+                if (this.husky.x >= 792)
                 {
                     this.bringHuskyOn();
                 }
             }
         }
 
-        this.huskyBounds.centerOn(this.husky.x + 4, this.husky.y + 8);
-        this.manBounds.centerOn(this.man.x + 2, this.man.y + 10);
-
-        this.emitter.emitX = this.husky.x - 16;
-        this.emitter.emitY = this.husky.y + 10;
+        this.manBounds.centerOn(this.man.x + 46, this.man.y + 46);
+        this.huskyBounds.centerOn(this.husky.x + 48, this.husky.y + 24);
+//edit this 
+        this.emitter.emitX = this.husky.x - 44;
+        this.emitter.emitY = this.husky.y + 38;
 
         //  Let's sort and collide
         this.layer.forEachAlive(this.checkItem, this);
@@ -359,10 +356,10 @@ Aquaplane.Game.prototype = {
             this.husky.body.setZeroForce();
             this.husky.body.x = 200;
         }
-        else if (this.husky.x > 750)
+        else if (this.husky.x > 650)
         {
             this.husky.body.setZeroForce();
-            this.husky.body.x = 750;
+            this.husky.body.x = 650;
         }
 
         if (this.husky.y < 100)
@@ -370,10 +367,10 @@ Aquaplane.Game.prototype = {
             this.husky.body.setZeroForce();
             this.husky.body.y = 100;
         }
-        else if (this.husky.y > 550)
+        else if (this.husky.y > 475)
         {
             this.husky.body.setZeroForce();
-            this.husky.body.y = 550;
+            this.husky.body.y = 475;
         }
 
         if (this.cursors.left.isDown)
@@ -402,7 +399,7 @@ Aquaplane.Game.prototype = {
 
     checkItem: function (item) {
 
-        if (item === this.husky || item === this.man)
+        if (item === this.man || item === this.husky)
         {
             return;
         }
@@ -411,7 +408,7 @@ Aquaplane.Game.prototype = {
         {
             if (item.key === 'crack')
             {
-                item.x = this.rnd.between(800, 864);
+                item.x = this.rnd.between(700, 750);
             }
             else
             {
@@ -467,7 +464,7 @@ Aquaplane.Game.prototype = {
 
     preRender: function () {
 
-        this.line.setTo(this.husky.x - 28, this.husky.y, this.man.x + 6, this.man.y - 1);
+        this.line.setTo(this.husky.x - 48, this.husky.y, this.man.x + 46, this.man.y);
 
         if (this.man.visible)
         {
@@ -484,17 +481,17 @@ Aquaplane.Game.prototype = {
 
         if (this.showDebug)
         {
-            this.game.debug.geom(this.huskyBounds);
             this.game.debug.geom(this.manBounds);
+            this.game.debug.geom(this.huskyBounds);
             this.layer.forEachAlive(this.renderBody, this);
-            this.game.debug.geom(this.man.position, 'rgba(255,255,0,1)');
+            this.game.debug.geom(this.husky.position, 'rgba(255,255,0,1)');
         }
 
     },
 
     renderBody: function (sprite) {
 
-        if (sprite === this.husky || sprite === this.man || sprite.key === 'crack')
+        if (sprite === this.man || sprite === this.husky || sprite.key === 'crack')
         {
             return;
         }
@@ -512,4 +509,3 @@ game.state.add('Aquaplane.MainMenu', Aquaplane.MainMenu);
 game.state.add('Aquaplane.Game', Aquaplane.Game);
 
 game.state.start('Aquaplane.Preloader');
-
