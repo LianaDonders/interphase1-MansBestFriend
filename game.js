@@ -300,7 +300,7 @@ Aquaplane.Game.prototype = {
         if ((this.time.time - this.lastKey) > 200)
         {
             this.lastKey = this.time.time;
-            this.releaseItem(800, this.husky.y - 16);
+            this.releaseItem(700, this.husky.y - 16);
         }
         else
         {
