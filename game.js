@@ -23,9 +23,9 @@ Aquaplane.Preloader.prototype = {
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
        
         this.load.spritesheet('crack', 'crack.png', 16, 6);
-        this.load.spritesheet('man', 'man.png', 92, 92, 8);
-        this.load.spritesheet('husky', 'husky.png', 96, 96, 7);
-        this.load.spritesheet('zombie', 'zombie.png', 96, 96, 8);
+        this.load.spritesheet('man', 'man.png', 92, 92);
+        this.load.spritesheet('husky', 'husky.png', 96, 96);
+        this.load.spritesheet('zombie', 'zombie.png', 96, 96);
     },
 
     create: function () {
