@@ -141,7 +141,7 @@ Aquaplane.Game.prototype = {
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
-        var man = game.add.sprite(100, 100, 'man');
+        var man = game.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
         man.animations.play('walk', 12, true)
 
@@ -153,7 +153,7 @@ Aquaplane.Game.prototype = {
         this.man.body.collideWorldBounds = false;
 
         this.husky = this.layer.create(0, 0, 'husky');
-        var husky = game.add.sprite(100, 100, 'husky');
+        var husky = game.add.sprite(0, 0, 'husky');
         var run = husky.animations.add('run');
         husky.animations.play('run', 12, true);
 
@@ -309,7 +309,6 @@ Aquaplane.Game.prototype = {
     },
 
     update: function () {
-        //background.tilePosition.y += 2;
 
         this.layer.sort('y', Phaser.Group.SORT_ASCENDING);
 
@@ -342,8 +341,8 @@ Aquaplane.Game.prototype = {
         this.manBounds.centerOn(this.man.x + 46, this.man.y + 46);
         this.huskyBounds.centerOn(this.husky.x + 48, this.husky.y + 24);
 //edit this 
-        this.emitter.emitX = this.husky.x - 16;
-        this.emitter.emitY = this.husky.y + 10;
+        this.emitter.emitX = this.husky.x - 44;
+        this.emitter.emitY = this.husky.y + 38;
 
         //  Let's sort and collide
         this.layer.forEachAlive(this.checkItem, this);
