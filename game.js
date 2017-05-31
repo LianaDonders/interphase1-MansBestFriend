@@ -19,7 +19,7 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'zomkabob', 'hand']);
+        this.load.images([ 'logo']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
        
         this.load.spritesheet('crack', 'crack.png', 16, 6);
