@@ -43,11 +43,10 @@ Aquaplane.MainMenu.prototype = {
 
     create: function () {
 
-       //this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
-         //background = this.game.add.tileSprite(0, 0, window.innerWidth, window.innerHeight, "town");
+ 
         
         var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
@@ -120,7 +119,6 @@ Aquaplane.Game.prototype = {
 
     create: function () {
 
-        //this.add.image(0, 0, 'town');
         var town = game.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
@@ -200,7 +198,7 @@ Aquaplane.Game.prototype = {
 
             area.y += 65;
         }
-// var man = this.layer.create(area.randomX, area.randomY, 'man', this.rnd.between(0, 2));
+
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
         //  The rope that attaches the husky to the man
@@ -311,7 +309,6 @@ Aquaplane.Game.prototype = {
     },
 
     update: function () {
-        //background.tilePosition.y += 2;
 
         this.layer.sort('y', Phaser.Group.SORT_ASCENDING);
 
