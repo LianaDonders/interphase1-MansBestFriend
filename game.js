@@ -148,7 +148,7 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.man, false);
 
-        this.man.body.mass = 1;
+        this.man.body.mass = 0.5;
         this.man.body.damping = 0.5;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
@@ -160,13 +160,13 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 0.05;
+        this.husky.body.mass = 1;
         this.husky.body.damping = 0.5;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
-        this.manBounds = new Phaser.Rectangle(0, 0, 60, 10);
-        this.huskyBounds = new Phaser.Rectangle(0, 0, 30, 8);
+        this.manBounds = new Phaser.Rectangle(0, 0, 92, 92);
+        this.huskyBounds = new Phaser.Rectangle(0, 0, 96, 96);
 
         var rev = new p2.RevoluteConstraint(this.man.body.data, this.husky.body.data, {
                 localPivotA: [9, 0],
