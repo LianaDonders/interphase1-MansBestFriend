@@ -25,7 +25,7 @@ Aquaplane.Preloader.prototype = {
         this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('man', 'man.png', 92, 92, 8);
         this.load.spritesheet('husky', 'husky.png', 96, 96, 7);
-        this.load.spritesheet('zombie', 'zombie.png', 96, 96, 8)
+        this.load.spritesheet('zombie', 'zombie.png', 96, 96, 8);
     },
 
     create: function () {
@@ -185,7 +185,7 @@ Aquaplane.Game.prototype = {
         //  Divide screen vertically into 520px / 8 layers = 65px per layer
         //  Place 8 cracks per layer (8*8 total)
 
-        var area = new Phaser.Rectangle(0, 80, this.game.width, 65);
+        var area = new Phaser.Rectangle(0, 80, this.game.width, 55);
 
         for (var i = 1; i <= 8; i++)
         {
@@ -197,7 +197,7 @@ Aquaplane.Game.prototype = {
                 crack.body.velocity.x = -120 + (i * -30);
             }
 
-            area.y += 65;
+            area.y += 55;
         }
 
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
