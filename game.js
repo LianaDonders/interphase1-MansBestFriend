@@ -466,7 +466,7 @@ Aquaplane.Game.prototype = {
 
     preRender: function () {
 
-        this.line.setTo(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
+        this.line.setTo(this.man.x - 48, this.man.y, this.husky.x + 46, this.husky.y - 1);
 
         if (this.husky.visible)
         {
