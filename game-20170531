@@ -340,7 +340,7 @@ Aquaplane.Game.prototype = {
 
         this.manBounds.centerOn(this.man.x + 46, this.man.y + 46);
         this.huskyBounds.centerOn(this.husky.x + 48, this.husky.y + 24);
-//edit this 
+//edit this(I think it might be unnecessary) 
         this.emitter.emitX = this.husky.x - 44;
         this.emitter.emitY = this.husky.y + 38;
 
