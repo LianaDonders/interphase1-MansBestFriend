@@ -266,7 +266,7 @@ Aquaplane.Game.prototype = {
 
     releaseItem: function (x, y) {
 
-        if (x === undefined) { x = 800; }
+        if (x === undefined) { x = 700; }
         if (y === undefined) { y = this.rnd.between(80, 487); }
 
         var frame = this.rnd.pick(this.itemDist);
@@ -358,10 +358,10 @@ Aquaplane.Game.prototype = {
             this.man.body.setZeroForce();
             this.man.body.x = 200;
         }
-        else if (this.man.x > 750)
+        else if (this.man.x > 650)
         {
             this.man.body.setZeroForce();
-            this.man.body.x = 750;
+            this.man.body.x = 650;
         }
 
         if (this.man.y < 100)
@@ -410,7 +410,7 @@ Aquaplane.Game.prototype = {
         {
             if (item.key === 'crack')
             {
-                item.x = this.rnd.between(800, 864);
+                item.x = this.rnd.between(700, 764);
             }
             else
             {
