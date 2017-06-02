@@ -166,8 +166,8 @@ Aquaplane.Game.prototype = {
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
-        this.manBounds = new Phaser.Rectangle(0, 0, 92, 92);
-        this.huskyBounds = new Phaser.Rectangle(0, 0, 96, 96);
+        this.manBounds = new Phaser.Rectangle(0, 0, 23, 23);
+        this.huskyBounds = new Phaser.Rectangle(0, 0, 24, 24);
 
         var rev = new p2.RevoluteConstraint(this.man.body.data, this.husky.body.data, {
                 localPivotA: [9, 0],
