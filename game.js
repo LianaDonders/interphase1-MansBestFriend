@@ -142,7 +142,7 @@ Aquaplane.Game.prototype = {
 
         this.layer = this.add.group();
 
-        //this.man = this.layer.create(0, 0, 'man');
+        this.man = this.layer.create(0, 0, 'man');
         var man = game.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
         man.animations.play('walk', 12, true)
@@ -150,7 +150,7 @@ Aquaplane.Game.prototype = {
         this.physics.p2.enable(this.man, false);
 
         this.man.body.mass = 0.5;
-        this.man.body.damping = 0.005;
+        this.man.body.damping = 0.001;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
 
@@ -162,7 +162,7 @@ Aquaplane.Game.prototype = {
         this.physics.p2.enable(this.husky, false);
 
         this.husky.body.mass = 0.05;
-        this.husky.body.damping = 0.05;
+        this.husky.body.damping = 0.001;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
