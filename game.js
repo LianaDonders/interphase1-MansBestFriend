@@ -343,8 +343,8 @@ Aquaplane.Game.prototype = {
         this.manBounds.centerOn(this.man.x + 4, this.man.y + 8);
         this.huskyBounds.centerOn(this.husky.x + 2, this.husky.y + 10);
 
-        this.emitter.emitX = this.man.x - 16;
-        this.emitter.emitY = this.man.y + 10;
+        this.emitter.emitX = this.man.x - 46;
+        this.emitter.emitY = this.man.y + 40;
 
         //  Let's sort and collide
         this.layer.forEachAlive(this.checkItem, this);
