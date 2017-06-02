@@ -50,7 +50,7 @@ Aquaplane.MainMenu.prototype = {
         town.animations.play('scroll', 12, true);
  
         
-        var logo = this.add.image( this.world.centerX, 200, 'logo');
+        var logo = this.add.image( this.world.centerX, 20, 'logo');
         logo.anchor.x = 0.5;
 
         var start = this.add.bitmapText(this.world.centerX, 460, 'fat-and-tiny', 'CLICK TO PLAY', 64);
