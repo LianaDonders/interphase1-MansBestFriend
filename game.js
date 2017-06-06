@@ -472,10 +472,8 @@ Aquaplane.Game.prototype = {
         if (this.husky.visible)
         {
             this.rope.clear();
-            //this.rope.lineStyle(1, 0xffffff, 1);
-            this.rope.moveTo(this.line.start.x, this.line.start.y);
-            this.rope.lineTo(this.line.end.x, this.line.end.y);
-            //this.rope.endFill();
+            //this.rope.moveTo(this.line.start.x, this.line.start.y);
+           // this.rope.lineTo(this.line.end.x, this.line.end.y);
         }
 
     },
