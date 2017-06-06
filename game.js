@@ -144,9 +144,9 @@ Aquaplane.Game.prototype = {
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
-        var this.man = game.add.sprite(0, 0, 'man');
-        var walk = this.man.animations.add('walk');
-        this.man.animations.play('walk', 12, true)
+        var man = game.add.sprite(0, 0, 'man');
+        var walk = man.animations.add('walk');
+            man.animations.play('walk', 12, true)
 
         this.physics.p2.enable(this.man, false);
 
