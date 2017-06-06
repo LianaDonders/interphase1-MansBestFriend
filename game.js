@@ -186,11 +186,11 @@ Aquaplane.Game.prototype = {
         //  Divide screen vertically into 520px / 8 layers = 65px per layer
         //  Place 8 cracks per layer (8*8 total)
 
-        var area = new Phaser.Rectangle(0, 70, this.game.width, 55);
+        var area = new Phaser.Rectangle(0, 70, this.game.width, 45);
 
-        for (var i = 1; i <= 8; i++)
+        for (var i = 1; i <= 7; i++)
         {
-            for (var w = 0; w < 8; w++)
+            for (var w = 0; w < 7; w++)
             {
                 var crack = this.layer.create(area.randomX, area.randomY, 'crack', this.rnd.between(0, 2));
                 'crack'.anchor.y = -1.5;
@@ -198,7 +198,7 @@ Aquaplane.Game.prototype = {
                 crack.body.velocity.x = -120 + (i * -30);
             }
 
-            area.y += 55;
+            area.y += 45;
         }
 
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
@@ -267,7 +267,7 @@ Aquaplane.Game.prototype = {
     releaseItem: function (x, y) {
 
         if (x === undefined) { x = 700; }
-        if (y === undefined) { y = this.rnd.between(80, 487); }
+        if (y === undefined) { y = this.rnd.between(80, 387); }
 
         var frame = this.rnd.pick(this.itemDist);
 
