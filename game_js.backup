@@ -19,13 +19,14 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'zomkabob', 'hand', 'zombie',]);
+        this.load.images([ 'logo']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
-       
         this.load.spritesheet('crack', 'crack.png', 16, 6);
-        this.load.spritesheet('man', 'man.png', 92, 92, 8);
-        this.load.spritesheet('husky', 'husky.png', 96, 96, 7);
-        this.load.spritesheet('zombie', 'zombie.png', 96, 96, 8)
+        this.load.spritesheet('man', 'man.png', 92, 92);
+        this.load.spritesheet('husky', 'husky.png', 96, 96);
+        this.load.spritesheet('zombie', 'zombie.png', 96, 96);
+         this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
+          this.load.spritesheet('hand', 'hand.png', 32, 32);
     },
 
     create: function () {
@@ -148,8 +149,8 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.man, false);
 
-        this.man.body.mass = 0.05;
-        this.man.body.damping = 0.5;
+        this.man.body.mass = 0.5;
+        this.man.body.damping = 0.001;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
 
@@ -160,13 +161,13 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 1;
-        this.husky.body.damping = 0.5;
+        this.husky.body.mass = 0.05;
+        this.husky.body.damping = 0.001;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
-        this.manBounds = new Phaser.Rectangle(0, 0, 60, 10);
-        this.huskyBounds = new Phaser.Rectangle(0, 0, 30, 8);
+        this.manBounds = new Phaser.Rectangle(0, 0, 23, 23);
+        this.huskyBounds = new Phaser.Rectangle(0, 0, 24, 24);
 
         var rev = new p2.RevoluteConstraint(this.man.body.data, this.husky.body.data, {
                 localPivotA: [9, 0],
@@ -185,7 +186,7 @@ Aquaplane.Game.prototype = {
         //  Divide screen vertically into 520px / 8 layers = 65px per layer
         //  Place 8 cracks per layer (8*8 total)
 
-        var area = new Phaser.Rectangle(0, 80, this.game.width, 65);
+        var area = new Phaser.Rectangle(0, 80, this.game.width, 55);
 
         for (var i = 1; i <= 8; i++)
         {
@@ -197,7 +198,7 @@ Aquaplane.Game.prototype = {
                 crack.body.velocity.x = -120 + (i * -30);
             }
 
-            area.y += 65;
+            area.y += 55;
         }
 
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
@@ -265,7 +266,7 @@ Aquaplane.Game.prototype = {
 
     releaseItem: function (x, y) {
 
-        if (x === undefined) { x = 800; }
+        if (x === undefined) { x = 700; }
         if (y === undefined) { y = this.rnd.between(80, 487); }
 
         var frame = this.rnd.pick(this.itemDist);
@@ -300,7 +301,7 @@ Aquaplane.Game.prototype = {
         if ((this.time.time - this.lastKey) > 200)
         {
             this.lastKey = this.time.time;
-            this.releaseItem(800, this.husky.y - 16);
+            this.releaseItem(700, this.husky.y - 16);
         }
         else
         {
@@ -357,10 +358,10 @@ Aquaplane.Game.prototype = {
             this.man.body.setZeroForce();
             this.man.body.x = 200;
         }
-        else if (this.man.x > 750)
+        else if (this.man.x > 650)
         {
             this.man.body.setZeroForce();
-            this.man.body.x = 750;
+            this.man.body.x = 650;
         }
 
         if (this.man.y < 100)
@@ -409,7 +410,7 @@ Aquaplane.Game.prototype = {
         {
             if (item.key === 'crack')
             {
-                item.x = this.rnd.between(800, 864);
+                item.x = this.rnd.between(700, 764);
             }
             else
             {
@@ -465,7 +466,7 @@ Aquaplane.Game.prototype = {
 
     preRender: function () {
 
-        this.line.setTo(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
+        this.line.setTo(this.man.x - 48, this.man.y, this.husky.x + 46, this.husky.y - 1);
 
         if (this.husky.visible)
         {
