@@ -162,7 +162,7 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 0.5;
+        this.husky.body.mass = 0.05;
         this.husky.body.damping = 0.01;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
