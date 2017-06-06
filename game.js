@@ -268,7 +268,7 @@ Aquaplane.Game.prototype = {
     releaseItem: function (x, y) {
 
         if (x === undefined) { x = 700; }
-        if (y === undefined) { y = this.rnd.between(80, 387); }
+        if (y === undefined) { y = this.rnd.between(80, 487); }
 
         var frame = this.rnd.pick(this.itemDist);
 
