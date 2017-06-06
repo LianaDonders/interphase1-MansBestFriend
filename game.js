@@ -151,7 +151,7 @@ Aquaplane.Game.prototype = {
         this.physics.p2.enable(this.man, false);
 
         this.man.body.mass = 0.5;
-        this.man.body.damping = 0;
+        this.man.body.damping = 0.01;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
 
@@ -162,8 +162,8 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 0.05;
-        this.husky.body.damping = 0;
+        this.husky.body.mass = 0.5;
+        this.husky.body.damping = 0.01;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
