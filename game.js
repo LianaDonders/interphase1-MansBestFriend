@@ -186,7 +186,7 @@ Aquaplane.Game.prototype = {
         //  Divide screen vertically into 520px / 8 layers = 65px per layer
         //  Place 8 cracks per layer (8*8 total)
 
-        var area = new Phaser.Rectangle(0, 80, this.game.width, 55);
+        var area = new Phaser.Rectangle(0, 70, this.game.width, 55);
 
         for (var i = 1; i <= 8; i++)
         {
