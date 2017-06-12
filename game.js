@@ -20,9 +20,9 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo']);
+        this.load.images([ 'logo', 'crack']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
-        this.load.spritesheet('crack', 'crack.png', 16, 6);
+       // this.load.spritesheet('crack', 'crack.png', 16, 6);
         this.load.spritesheet('husky', 'man.png', 92, 92);
         this.load.spritesheet('man', 'husky.png', 96, 96);
         this.load.spritesheet('zombie', 'zombie.png', 96, 96);
@@ -282,7 +282,7 @@ Aquaplane.Game.prototype = {
         }
         else
         {
-            item.body.setSize(16, 8, 24, -10);
+            item.body.setSize(16, 8, 0, -24);
         }
 
         var i = this.math.snapToFloor(y, 65) / 65;
