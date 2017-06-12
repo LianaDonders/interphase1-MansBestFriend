@@ -144,7 +144,7 @@ Aquaplane.Game.prototype = {
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
-        var man = game.add.sprite(-100, -100, 'man');
+        var man = game.add.sprite(x, y, 'man');
         var walk = man.animations.add('walk');
             man.animations.play('walk', 12, true)
 
