@@ -370,10 +370,10 @@ Aquaplane.Game.prototype = {
             this.man.body.setZeroForce();
             this.man.body.y = 100;
         }
-        else if (this.man.y > 520)
+        else if (this.man.y > 510)
         {
             this.man.body.setZeroForce();
-            this.man.body.y = 520;
+            this.man.body.y = 510;
         }
 
         if (this.cursors.left.isDown)
