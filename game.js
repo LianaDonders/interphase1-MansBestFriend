@@ -282,7 +282,7 @@ Aquaplane.Game.prototype = {
         }
         else
         {
-            item.body.setSize(16, 8, 24, 0);
+            item.body.setSize(16, 8, 24, -10);
         }
 
         var i = this.math.snapToFloor(y, 65) / 65;
@@ -370,10 +370,10 @@ Aquaplane.Game.prototype = {
             this.man.body.setZeroForce();
             this.man.body.y = 100;
         }
-        else if (this.man.y > 500)
+        else if (this.man.y > 495)
         {
             this.man.body.setZeroForce();
-            this.man.body.y = 500;
+            this.man.body.y = 495;
         }
 
         if (this.cursors.left.isDown)
