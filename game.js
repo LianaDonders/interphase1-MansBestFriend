@@ -181,26 +181,7 @@ Aquaplane.Game.prototype = {
 
         rev.setStiffness(2.0);
 
-        //  Let's create some cracks (harmless eye candy)
-        //  
-        //  Divide screen vertically into 520px / 8 layers = 65px per layer
-        //  Place 8 cracks per layer (8*8 total)
-
-        var area = new Phaser.Rectangle(0, 70, this.game.width, 45);
-
-        for (var i = 1; i <= 7; i++)
-        {
-            for (var w = 0; w < 7; w++)
-            {
-                var crack = this.layer.create(area.randomX, area.randomY, 'crack', this.rnd.between(0, 2));
-                'crack'.anchor.y = -1.5;
-                this.physics.arcade.enable(crack);
-                crack.body.velocity.x = -120 + (i * -30);
-            }
-
-            area.y += 45;
-        }
-
+     
         this.line = new Phaser.Line(this.man.x - 28, this.man.y, this.husky.x + 6, this.husky.y - 1);
 
         //  The rope that attaches the husky to the man
