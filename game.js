@@ -262,7 +262,7 @@ Aquaplane.Game.prototype = {
         }
         else
         {
-            item.body.setSize(16, 8, 0, -24);
+            item.body.setSize(16, 8, 24, 24);
         }
 
         var i = this.math.snapToFloor(y, 65) / 65;
