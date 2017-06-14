@@ -20,7 +20,7 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo']);
+        this.load.images(['logo']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
         this.load.spritesheet('husky', 'man.png', 92, 92);
         this.load.spritesheet('man', 'husky.png', 96, 96);
@@ -121,15 +121,15 @@ Aquaplane.Game.prototype = {
 
     create: function () {
         //bad guys
-        var zombie = this.add.sprite(this.game.width, 0, 'zombie');
+        var zombie = this.add.sprite(750, 0, 'zombie');
         var limp = zombie.animations.add('limp');
         zombie.animations.play('limp', 12, true);
         
-        var zomkabob = this.add.sprite(this.game.width, 0, 'zomkabob');
+        var zomkabob = this.add.sprite(750, 0, 'zomkabob');
         var chomp = zomkabob.animations.add('chomp');
         zomkabob.animations.play('chomp', 12, true);
         
-        var hand = this.add.sprite(this.game.width, 0, 'hand');
+        var hand = this.add.sprite(750, 0, 'hand');
         var crawl = hand.animations.add('crawl');
         hand.animations.play('crawl', 12, true);
 
