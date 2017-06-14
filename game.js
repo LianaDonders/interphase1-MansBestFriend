@@ -250,13 +250,6 @@ Aquaplane.Game.prototype = {
         this.husky.body.x = -264;
         this.husky.body.y = 300;
 
-        this.husky.body.velocity.x = 300;
-        this.husky = this.layer.create(0, 0, 'husky');
-        var husky = this.add.sprite(0, 0, 'husky');
-        var run = husky.animations.add('run');
-        husky.animations.play('run', 12, true);
-
-
     },
 
     manReady: function () {
