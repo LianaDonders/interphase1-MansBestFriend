@@ -258,11 +258,11 @@ Aquaplane.Game.prototype = {
 
         if (frame === 'zombie')
         {
-            item.body.setSize(32, 14, 0, 30);
+            item.body.setSize(32, 14, 15, 30);
         }
         else
         {
-            item.body.setSize(16, 8, 24, 0);
+            item.body.setSize(16, 8, 15, 0);
         }
  if (frame === 'zomkabob')
         {
