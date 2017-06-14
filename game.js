@@ -323,14 +323,14 @@ Aquaplane.Game.prototype = {
         {
             if (this.husky.visible)
             {
-                if (this.man.x >= 250)
+                if (this.man.x >= 100)
                 {
                     this.manReady();
                 }
             }
             else
             {
-                if (this.man.x >= 832)
+                if (this.man.x >= 750)
                 {
                     this.bringManOn();
                 }
