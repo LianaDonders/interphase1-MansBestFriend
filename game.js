@@ -141,16 +141,16 @@ Aquaplane.Game.prototype = {
         //this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
         //this.waterParticle.update();
 
-        this.emitter = this.add.emitter(128, 128, 128);
-        this.emitter.makeParticles(this.waterParticle);
+        //this.emitter = this.add.emitter(128, 128, 128);
+        //this.emitter.makeParticles(this.waterParticle);
 
-        this.emitter.gravity = 0;
-        this.emitter.setXSpeed(-100, -250);
-        this.emitter.setYSpeed(-100, 100);
+        //this.emitter.gravity = 0;
+        //this.emitter.setXSpeed(-100, -250);
+        //this.emitter.setYSpeed(-100, 100);
 
-        this.emitter.setAlpha(1, 0.2, 500);
+        //this.emitter.setAlpha(1, 0.2, 500);
 
-        this.emitter.flow(500, 20, 2, -1, true);
+        //this.emitter.flow(500, 20, 2, -1, true);
 
         this.layer = this.add.group();
 
@@ -161,8 +161,8 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.man, false);
 
-        this.man.body.mass = 0.5;
-        this.man.body.damping = 0.01;
+        this.man.body.mass = 1;
+        this.man.body.damping = 0.5;
         this.man.body.fixedRotation = true;
         this.man.body.collideWorldBounds = false;
 
@@ -173,8 +173,8 @@ Aquaplane.Game.prototype = {
 
         this.physics.p2.enable(this.husky, false);
 
-        this.husky.body.mass = 0.05;
-        this.husky.body.damping = 0.01;
+        this.husky.body.mass = 0.5;
+        this.husky.body.damping = 0.5;
         this.husky.body.fixedRotation = true;
         this.husky.body.collideWorldBounds = false;
 
