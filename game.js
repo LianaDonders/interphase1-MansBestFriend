@@ -264,7 +264,10 @@ Aquaplane.Game.prototype = {
         {
             item.body.setSize(16, 8, 24, 24);
         }
-
+ if (frame === 'zomkabob')
+        {
+            item.body.setSize(32, 14, 24, 24);
+        }
         var i = this.math.snapToFloor(y, 65) / 65;
 
         item.body.velocity.x = -120 + (i * -30);
