@@ -243,7 +243,7 @@ Aquaplane.Game.prototype = {
         this.husky.body.x = -264;
         this.husky.body.y = 300;
 
-        this.husky.body.velocity.x = 3000;
+        this.husky.body.velocity.x = 1000;
 
     },
 
