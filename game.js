@@ -20,13 +20,13 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images(['logo']);
+        this.load.images([ 'logo']);
         this.load.spritesheet('town', 'town1.png', 700, 700, 22);
         this.load.spritesheet('husky', 'man.png', 92, 92);
         this.load.spritesheet('man', 'husky.png', 96, 96);
         this.load.spritesheet('zombie', 'zombie.png', 96, 96);
-        this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
-        this.load.spritesheet('hand', 'hand.png', 32, 32);
+         this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
+          this.load.spritesheet('hand', 'hand.png', 32, 32);
     },
 
     create: function () {
@@ -120,30 +120,44 @@ Aquaplane.Game.prototype = {
     },
 
     create: function () {
-        var town = this.add.sprite(0, -50, 'town');
-        var scroll = town.animations.add('scroll');
-        town.animations.play('scroll', 12, true);
-        
-		//bad guys
-        var zombie = this.add.sprite(750, 0, 'zombie');
+        //bad guys
+        var zombie = this.add.sprite(this.game.width, 0, 'zombie');
         var limp = zombie.animations.add('limp');
         zombie.animations.play('limp', 12, true);
         
-        var zomkabob = this.add.sprite(750, 0, 'zomkabob');
+        var zomkabob = this.add.sprite(this.game.width, 0, 'zomkabob');
         var chomp = zomkabob.animations.add('chomp');
         zomkabob.animations.play('chomp', 12, true);
         
-        var hand = this.add.sprite(750, 0, 'hand');
+        var hand = this.add.sprite(this.game.width, 0, 'hand');
         var crawl = hand.animations.add('crawl');
         hand.animations.play('crawl', 12, true);
 
- 
+        var town = this.add.sprite(0, -50, 'town');
+        var scroll = town.animations.add('scroll');
+        town.animations.play('scroll', 12, true);
+
+        //this.waterParticle = this.make.bitmapData(2, 2);
+        //this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
+        //this.waterParticle.update();
+
+        //this.emitter = this.add.emitter(128, 128, 128);
+        //this.emitter.makeParticles(this.waterParticle);
+
+        //this.emitter.gravity = 0;
+        //this.emitter.setXSpeed(-100, -250);
+        //this.emitter.setYSpeed(-100, 100);
+
+       // this.emitter.setAlpha(1, 0.2, 500);
+
+        //this.emitter.flow(500, 20, 2, -1, true);
+
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
         var man = this.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
-        man.animations.play('walk', 12, true)
+            man.animations.play('walk', 12, true)
 
         this.physics.p2.enable(this.man, false);
 
@@ -177,7 +191,7 @@ Aquaplane.Game.prototype = {
 
         rev.setLimits(this.math.degToRad(-40), this.math.degToRad(40));
 
-        rev.setStiffness(1.0);
+        rev.setStiffness(2.0);
         
         
      
@@ -263,11 +277,11 @@ Aquaplane.Game.prototype = {
         {
             item.body.setSize(16, 8, 0, 5);
         }
-		if (frame === 'zomkabob')
+ if (frame === 'zomkabob')
         {
             item.body.setSize(32, 14, 24, 24);
         }
-        var i = this.math.snapToFloor(y, 90) / 90;
+        var i = this.math.snapToFloor(y, 65) / 65;
 
         item.body.velocity.x = -120 + (i * -30);
 
@@ -302,21 +316,21 @@ Aquaplane.Game.prototype = {
             this.updateMan();
 
             //  Score based on their position on the screen
-            this.score += (this.math.snapToFloor(this.husky.y, 90) / 90);
+            this.score += (this.math.snapToFloor(this.husky.y, 65) / 65);
             this.scoreText.text = "SCORE: " + this.score;
         }
         else
         {
             if (this.husky.visible)
             {
-                if (this.man.x >= 100)
+                if (this.man.x >= 250)
                 {
                     this.manReady();
                 }
             }
             else
             {
-                if (this.man.x >= 750)
+                if (this.man.x >= 832)
                 {
                     this.bringManOn();
                 }
