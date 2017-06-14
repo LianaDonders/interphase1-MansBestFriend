@@ -174,6 +174,26 @@ Aquaplane.Game.prototype = {
                 localPivotB: [2, 0],
                 collideConnected: false
             });
+         //  Let's create some hands
+        //  
+        //  Divide screen vertically into 450px / 5 layers = 90px per layer
+        //  Place 2 monsters per layer (8*8 total)
+
+        var area = new Phaser.Rectangle(0, 40, this.game.width, 90);
+
+        for (var i = 1; i <= 5; i++)
+        {
+            for (var w = 0; w < 2; w++)
+            {
+                var hand = this.layer.create(area.randomX, area.randomY, 'hands', this.rnd.between(0, 2));
+                hand.anchor.y = -1.5;
+                this.physics.arcade.enable(hand);
+                hand.body.velocity.x = -120 + (i * -30);
+            }
+
+            area.y += 90;
+        }
+
 
         this.physics.p2.world.addConstraint(rev);
 
