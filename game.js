@@ -137,9 +137,9 @@ Aquaplane.Game.prototype = {
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 12, true);
 
-        this.waterParticle = this.make.bitmapData(2, 2);
-        this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
-        this.waterParticle.update();
+        //this.waterParticle = this.make.bitmapData(2, 2);
+        //this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
+        //this.waterParticle.update();
 
         this.emitter = this.add.emitter(128, 128, 128);
         this.emitter.makeParticles(this.waterParticle);
