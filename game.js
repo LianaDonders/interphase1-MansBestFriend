@@ -330,7 +330,7 @@ Aquaplane.Game.prototype = {
             }
             else
             {
-                if (this.man.x >= 750)
+                if (this.man.x >= 720)
                 {
                     this.bringManOn();
                 }
