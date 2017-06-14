@@ -262,7 +262,7 @@ Aquaplane.Game.prototype = {
         }
         else
         {
-            item.body.setSize(16, 8, 15, 0);
+            item.body.setSize(16, 8, 0, 5);
         }
  if (frame === 'zomkabob')
         {
