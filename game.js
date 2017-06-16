@@ -243,7 +243,7 @@ Aquaplane.Game.prototype = {
         this.husky.body.x = -264;
         this.husky.body.y = 300;
 
-        this.husky.body.velocity.x = 900;
+        this.husky.body.velocity.x = 600;
 
     },
 
@@ -447,7 +447,7 @@ Aquaplane.Game.prototype = {
 
             //  Speed the man away
             this.man.body.setZeroVelocity();
-            this.man.body.velocity.x = 600;
+            this.man.body.velocity.x = 900;
 
             this.itemInterval.min += 200;
             this.itemInterval.max += 200;
