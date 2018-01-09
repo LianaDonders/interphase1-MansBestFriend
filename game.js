@@ -238,6 +238,7 @@ Aquaplane.Game.prototype = {
 
         this.man.body.x = -64;
         this.man.body.y = 300;
+        
 
         this.husky.visible = true;
         this.husky.body.x = -264;
@@ -439,15 +440,15 @@ Aquaplane.Game.prototype = {
 
             this.ready = false;
 
-            //  Kill the dog!
-            this.husky.visible = false;
+            //  Kill the man!
+            this.man.visible = false;
 
             //  Hide the rope
             this.rope.clear();
 
-            //  Speed the man away
-            this.man.body.setZeroVelocity();
-            this.man.body.velocity.x = 900;
+            //  Speed the dog away
+            this.huskey.body.setZeroVelocity();
+            this.huskey.body.velocity.x = 900;
 
             this.itemInterval.min += 200;
             this.itemInterval.max += 200;
