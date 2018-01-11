@@ -248,11 +248,11 @@ Aquaplane.Game.prototype = {
 
     },
 
-    huskeyReady: function () {
+    huskyReady: function () {
 
         this.ready = true;
         
-        this.huskey.body.setZeroVelocity();
+        this.husky.body.setZeroVelocity();
 
         this.timer.add(this.itemInterval.max, this.releaseItem, this);
         this.timer.start();
