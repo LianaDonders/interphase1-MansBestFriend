@@ -1,3 +1,5 @@
+
+//Do not mess with this copy
 //!REMEMBER! the husky took the name of man and the man took the name of husky REMEMBER!!!!
 var Aquaplane = {};
 
