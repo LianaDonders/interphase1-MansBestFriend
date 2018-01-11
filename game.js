@@ -216,7 +216,7 @@ Aquaplane.Game.prototype = {
         this.debugKey = this.input.keyboard.addKey(Phaser.Keyboard.D);
         this.debugKey.onDown.add(this.toggleDebug, this);
 
-        this.bringHuyskyOn();
+        this.bringHuskyOn();
 
     },
 
