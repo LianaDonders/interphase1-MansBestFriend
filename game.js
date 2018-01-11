@@ -299,7 +299,7 @@ Aquaplane.Game.prototype = {
         if ((this.time.time - this.lastKey) > 200)
         {
             this.lastKey = this.time.time;
-            this.releaseItem(700, this.husky.y - 16);
+            this.releaseItem(700, this.man.y - 16);
         }
         else
         {
@@ -317,7 +317,7 @@ Aquaplane.Game.prototype = {
             this.updateHusky();
 
             //  Score based on their position on the screen
-            this.score += (this.math.snapToFloor(this.husky.y, 65) / 65);
+            this.score += (this.math.snapToFloor(this.man.y, 65) / 65);
             this.scoreText.text = "SCORE: " + this.score;
         }
         else
