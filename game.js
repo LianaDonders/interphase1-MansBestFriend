@@ -135,7 +135,7 @@ Aquaplane.Game.prototype = {
 
         var town = this.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
-        town.animations.play('scroll', 12, true);
+        town.animations.play('scroll', 8, true);
 
         //this.waterParticle = this.make.bitmapData(2, 2);
         //this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
@@ -156,8 +156,8 @@ Aquaplane.Game.prototype = {
 
         this.man = this.layer.create(0, 0, 'man');
         var man = this.add.sprite(0, 0, 'man');
-        var walk = man.animations.add('walk');
-            man.animations.play('walk', 12, true)
+        var run = man.animations.add('run');
+            man.animations.play('run', 12, true)
 
         this.physics.p2.enable(this.husky, false);
 
@@ -168,8 +168,8 @@ Aquaplane.Game.prototype = {
 
         this.husky = this.layer.create(0, 0, 'husky');
         var husky = this.add.sprite(0, 0, 'husky');
-        var run = husky.animations.add('run');
-        husky.animations.play('run', 12, true);
+        var rush = husky.animations.add('rush');
+        husky.animations.play('rush', 12, true);
 
         this.physics.p2.enable(this.man, false);
 
