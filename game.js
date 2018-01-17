@@ -120,6 +120,18 @@ Aquaplane.Game.prototype = {
     },
 
     create: function () {
+         var zombie = this.add.sprite(750, 0, 'zombie');
+        var limp = zombie.animations.add('limp');
+        zombie.animations.play('limp', 12, true);
+        
+        var zomkabob = this.add.sprite(750, 0, 'zomkabob');
+        var chomp = zomkabob.animations.add('chomp');
+        zomkabob.animations.play('chomp', 12, true);
+        
+        var hand = this.add.sprite(750, 0, 'hand');
+        var crawl = hand.animations.add('crawl');
+        hand.animations.play('crawl', 12, true);
+        
 
         var town = this.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
