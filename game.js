@@ -157,7 +157,7 @@ Aquaplane.Game.prototype = {
         this.man = this.layer.create(0, 0, 'man');
         var man = this.add.sprite(0, 0, 'man');
         var run = man.animations.add('run');
-            man.animations.play('run', 12, true)
+        man.animations.play('run', 12, true);
 
         this.physics.p2.enable(this.husky, false);
 
