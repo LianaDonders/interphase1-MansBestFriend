@@ -120,26 +120,13 @@ Aquaplane.Game.prototype = {
     },
 
     create: function () {
-        //bad guys
-        var zombie = this.add.sprite(750, 0, 'zombie');
-        var limp = zombie.animations.add('limp');
-        zombie.animations.play('limp', 12, true);
-        
-        var zomkabob = this.add.sprite(750, 0, 'zomkabob');
-        var chomp = zomkabob.animations.add('chomp');
-        zomkabob.animations.play('chomp', 12, true);
-        
-        var hand = this.add.sprite(750, 0, 'hand');
-        var crawl = hand.animations.add('crawl');
-        hand.animations.play('crawl', 12, true);
-
         var town = this.add.sprite(0, -50, 'town');
         var scroll = town.animations.add('scroll');
         town.animations.play('scroll', 8, true);
 
-        //this.waterParticle = this.make.bitmapData(2, 2);
-        //this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
-        //this.waterParticle.update();
+        this.waterParticle = this.make.bitmapData(2, 2);
+        this.waterParticle.rect(0, 0, 2, 2, '#ffffff');
+        this.waterParticle.update();
 
         this.emitter = this.add.emitter(128, 128, 128);
         this.emitter.makeParticles(this.waterParticle);
