@@ -157,8 +157,8 @@ Aquaplane.Game.prototype = {
         this.man.body.collideWorldBounds = false;
 
         this.husky = this.layer.create(0, 0, 'husky');
-        var husky = this.add.sprite(0, 0, 'husky');
-        var run = husky.animations.add('run');
+        this.husky = this.add.sprite(0, 0, 'husky');
+        this.run = husky.animations.add('run');
         husky.animations.play('run', 12, true);
 
         this.physics.p2.enable(this.husky, false);
