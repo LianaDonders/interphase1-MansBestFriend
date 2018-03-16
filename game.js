@@ -144,7 +144,10 @@ Aquaplane.Game.prototype = {
         this.layer = this.add.group();
 
         this.man = this.layer.create(0, 0, 'man');
-        
+                
+        var man = this.add.sprite(0, 0, 'man');
+        var walk = man.animations.add('walk');
+        man.animations.play('walk', 12, true);
 
         this.physics.p2.enable(this.man, false);
 
@@ -219,10 +222,6 @@ Aquaplane.Game.prototype = {
     },
 
     bringManOn: function () {
-        
-        var man = this.add.sprite(0, 0, 'man');
-        var walk = man.animations.add('walk');
-        man.animations.play('walk', 12, true);
         
         this.ready = false;
 
