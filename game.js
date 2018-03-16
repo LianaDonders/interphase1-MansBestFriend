@@ -26,8 +26,8 @@ Aquaplane.Preloader.prototype = {
         this.load.spritesheet('husky', 'man.png', 92, 92);
         this.load.spritesheet('man', 'husky.png', 96, 96);
         this.load.spritesheet('zombie', 'zombie.png', 96, 96);
-         this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
-          this.load.spritesheet('hand', 'hand.png', 32, 32);
+        this.load.spritesheet('zomkabob', 'zomkabob.png', 96, 96);
+        this.load.spritesheet('hand', 'hand.png', 32, 32);
     },
 
     create: function () {
@@ -143,9 +143,9 @@ Aquaplane.Game.prototype = {
 
         this.layer = this.add.group();
 
-        var man = this.layer.create(0, 0, 'man');
+        this.man = this.layer.create(0, 0, 'man');
                 
-        //var man = this.add.sprite(0, 0, 'man');
+        var man = this.add.sprite(0, 0, 'man');
         var walk = man.animations.add('walk');
         man.animations.play('walk', 12, true);
 
