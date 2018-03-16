@@ -86,7 +86,7 @@ Aquaplane.Game = function (game) {
     this.layer = null;
     this.itemDist = ['zomkabob', 'zomkabob', 'zomkabob', 'hand', 'hand', 'hand', 'zombie'];
 
-   // this.man = null;
+    this.man = null;
     this.husky = null;
     this.rope = null;
 
@@ -224,6 +224,10 @@ Aquaplane.Game.prototype = {
 
         this.man.body.x = -64;
         this.man.body.y = 300;
+        
+        var man = this.add.sprite(0, 0, 'man');
+        var walk = man.animations.add('walk');
+         man.animations.play('walk', 12, true);
 
         this.husky.visible = true;
         this.husky.body.x = -264;
