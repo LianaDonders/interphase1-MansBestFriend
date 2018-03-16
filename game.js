@@ -219,15 +219,15 @@ Aquaplane.Game.prototype = {
     },
 
     bringManOn: function () {
-
+        
+        var man = this.add.sprite(0, 0, 'man');
+        var walk = man.animations.add('walk');
+        man.animations.play('walk', 12, true);
+        
         this.ready = false;
 
         this.man.body.x = -64;
         this.man.body.y = 300;
-        
-        var man = this.add.sprite(0, 0, 'man');
-        var walk = man.animations.add('walk');
-         man.animations.play('walk', 12, true);
 
         this.husky.visible = true;
         this.husky.body.x = -264;
