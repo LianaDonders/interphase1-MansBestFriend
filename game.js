@@ -86,7 +86,7 @@ Aquaplane.Game = function (game) {
     this.layer = null;
     this.itemDist = ['zomkabob', 'zomkabob', 'zomkabob', 'hand', 'hand', 'hand', 'zombie'];
 
-    this.man = null;
+   // this.man = null;
     this.husky = null;
     this.rope = null;
 
