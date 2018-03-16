@@ -226,7 +226,7 @@ Aquaplane.Game.prototype = {
         
         this.ready = false;
 
-        this.man.body.x = -10;
+        this.man.body.x = -64;
         this.man.body.y = 300;
 
         this.husky.visible = true;
